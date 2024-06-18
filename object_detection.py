@@ -2,13 +2,13 @@ from ultralytics import YOLO
 import numpy as np
 import cv2
 
-cap = cv2.VideoCapture("/content/test_footage.mp4")
+cap = cv2.VideoCapture("test_footage.mp4")
 
-model = YOLO("/content/yolov8x-oiv7.pt")
+model = YOLO("yolov8x-oiv7.pt")
 labels = model.names
 colors = np.random.uniform(0, 255, size=(len(labels), 3))
 
-video = cv2.VideoWriter("/content/output.avi", cv2.VideoWriter_fourcc(*'XVID'), 30, (1280, 720))
+video = cv2.VideoWriter("output.avi", cv2.VideoWriter_fourcc(*'XVID'), 30, (1280, 720))
 
 while True:
     success, img = cap.read()
